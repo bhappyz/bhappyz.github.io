@@ -1,7 +1,7 @@
 {
   "_comment": "Read by installed apps at start and on every return to the foreground (at most hourly). Builds below minBuild are blocked with an Update screen. See FORCE_UPDATE.md in the private repo.",
   "android": {
-    "minBuild": 99,
+    "minBuild": 1,
     "message": "This version of Crypto Monitor is no longer supported. Install the latest version to keep tracking prices.",
     "storeUrl": "https://play.google.com/store/apps/details?id=org.bitcoinchecker.bitcoin_checker"
   }
