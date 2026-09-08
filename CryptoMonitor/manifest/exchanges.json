@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-06T00:39:20.644082Z",
+  "generatedAt": "2026-09-08T08:53:08.035843Z",
   "note": "Endpoints verified live on 2026-09-03. health is maintained by tool/health_probe.dart, not by hand. Tickers are symbol-filtered (`single` or {symbols}/{symbolsJson} in the bulk url) so a refresh moves bytes, not megabytes. `candles` gives today's open and intraday chart; venues without it fall back to 24h figures.",
   "exchanges": [
     {
       "id": "binance_spot",
       "name": "Binance",
       "ttsName": "Bynance",
-      "health": "ok",
+      "health": "down",
       "pairs": {
         "requests": [
           {
@@ -130,7 +130,7 @@
       "id": "bybit_spot",
       "name": "Bybit",
       "ttsName": "By bit",
-      "health": "ok",
+      "health": "down",
       "note": "The original app pointed at spot/v3, retired 31 Aug 2024. This is v5.",
       "pairs": {
         "requests": [
@@ -1153,7 +1153,7 @@
       "id": "binance_futures_usdm",
       "name": "Binance Futures",
       "ttsName": "Bynance futures",
-      "health": "ok",
+      "health": "down",
       "pairs": {
         "requests": [
           {
@@ -1208,7 +1208,7 @@
       "id": "bybit_perps",
       "name": "Bybit Perpetuals",
       "ttsName": "By bit perpetuals",
-      "health": "ok",
+      "health": "down",
       "pairs": {
         "requests": [
           {
@@ -1399,7 +1399,7 @@
       "id": "phemex_spot",
       "name": "Phemex",
       "ttsName": "Fee mex",
-      "health": "ok",
+      "health": "down",
       "pairs": {
         "requests": [
           {
