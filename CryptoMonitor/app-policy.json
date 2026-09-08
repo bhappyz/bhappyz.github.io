@@ -3,6 +3,6 @@
   "android": {
     "minBuild": 1,
     "message": "This version of Crypto Monitor is no longer supported. Install the latest version to keep tracking prices.",
-    "storeUrl": "https://play.google.com/store/apps/details?id=org.bitcoinchecker.bitcoin_checker"
+    "storeUrl": "https://play.google.com/store/apps/details?id=io.github.bhappyz.cryptomonitor"
   }
 }
