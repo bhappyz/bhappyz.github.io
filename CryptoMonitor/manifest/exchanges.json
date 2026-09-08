@@ -1,6 +1,6 @@
 {
-  "version": 3,
-  "generatedAt": "2026-09-08T08:53:08.035843Z",
+  "version": 5,
+  "generatedAt": "2026-09-08T18:47:17.215808Z",
   "note": "Endpoints verified live on 2026-09-03. health is maintained by tool/health_probe.dart, not by hand. Tickers are symbol-filtered (`single` or {symbols}/{symbolsJson} in the bulk url) so a refresh moves bytes, not megabytes. `candles` gives today's open and intraday chart; venues without it fall back to 24h figures.",
   "exchanges": [
     {
@@ -130,7 +130,7 @@
       "id": "bybit_spot",
       "name": "Bybit",
       "ttsName": "By bit",
-      "health": "down",
+      "health": "ok",
       "note": "The original app pointed at spot/v3, retired 31 Aug 2024. This is v5.",
       "pairs": {
         "requests": [
@@ -1208,7 +1208,7 @@
       "id": "bybit_perps",
       "name": "Bybit Perpetuals",
       "ttsName": "By bit perpetuals",
-      "health": "down",
+      "health": "ok",
       "pairs": {
         "requests": [
           {
@@ -1399,7 +1399,7 @@
       "id": "phemex_spot",
       "name": "Phemex",
       "ttsName": "Fee mex",
-      "health": "down",
+      "health": "ok",
       "pairs": {
         "requests": [
           {
@@ -1410,10 +1410,16 @@
         "base": "$.baseCurrency",
         "quote": "$.quoteCurrency",
         "symbolId": "$.symbol",
-        "activeWhen": {
-          "path": "$.status",
-          "equals": "Listed"
-        }
+        "activeWhen": [
+          {
+            "path": "$.status",
+            "equals": "Listed"
+          },
+          {
+            "path": "$.type",
+            "equals": "Spot"
+          }
+        ]
       },
       "ticker": {
         "mode": "bulk",
