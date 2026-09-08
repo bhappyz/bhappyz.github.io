@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "generatedAt": "2026-09-08T08:53:08.035843Z",
   "note": "Endpoints verified live on 2026-09-03. health is maintained by tool/health_probe.dart, not by hand. Tickers are symbol-filtered (`single` or {symbols}/{symbolsJson} in the bulk url) so a refresh moves bytes, not megabytes. `candles` gives today's open and intraday chart; venues without it fall back to 24h figures.",
   "exchanges": [
@@ -7,7 +7,7 @@
       "id": "binance_spot",
       "name": "Binance",
       "ttsName": "Bynance",
-      "health": "down",
+      "health": "ok",
       "pairs": {
         "requests": [
           {
@@ -1153,7 +1153,7 @@
       "id": "binance_futures_usdm",
       "name": "Binance Futures",
       "ttsName": "Bynance futures",
-      "health": "down",
+      "health": "ok",
       "pairs": {
         "requests": [
           {
