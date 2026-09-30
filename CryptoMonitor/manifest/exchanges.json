@@ -1,11 +1,6 @@
 {
-<<<<<<< HEAD
-  "version": 8,
-  "generatedAt": "2026-09-22T09:19:55.282877Z",
-=======
-  "version": 7,
+  "version": 9,
   "generatedAt": "2026-09-30T12:56:00.606530Z",
->>>>>>> 84a84ee (Derivatives venues list perpetuals only; manifest v7; version 1.0.6 (build 7))
   "note": "Endpoints verified live on 2026-09-03. health is maintained by tool/health_probe.dart, not by hand. Tickers are symbol-filtered (`single` or {symbols}/{symbolsJson} in the bulk url) so a refresh moves bytes, not megabytes. `candles` gives today's open and intraday chart; venues without it fall back to 24h figures.",
   "exchanges": [
     {
@@ -1297,11 +1292,7 @@
       "name": "BitMEX",
       "ttsName": "Bit mex",
       "health": "down",
-<<<<<<< HEAD
-      "note": "One call carries both the instrument list and its prices, so discovery and ticker share a URL.",
-=======
       "note": "One call carries both the instrument list and its prices, so discovery and ticker share a URL. Perpetuals only: the instrument feed also lists dated futures with the same base and quote, which look identical in the picker but trade rarely, so their last price can sit still for an hour.",
->>>>>>> 84a84ee (Derivatives venues list perpetuals only; manifest v7; version 1.0.6 (build 7))
       "pairs": {
         "requests": [
           {
