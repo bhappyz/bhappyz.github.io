@@ -1,6 +1,11 @@
 {
-  "version": 5,
-  "generatedAt": "2026-09-08T18:47:17.215808Z",
+<<<<<<< HEAD
+  "version": 8,
+  "generatedAt": "2026-09-22T09:19:55.282877Z",
+=======
+  "version": 7,
+  "generatedAt": "2026-09-30T12:56:00.606530Z",
+>>>>>>> 84a84ee (Derivatives venues list perpetuals only; manifest v7; version 1.0.6 (build 7))
   "note": "Endpoints verified live on 2026-09-03. health is maintained by tool/health_probe.dart, not by hand. Tickers are symbol-filtered (`single` or {symbols}/{symbolsJson} in the bulk url) so a refresh moves bytes, not megabytes. `candles` gives today's open and intraday chart; venues without it fall back to 24h figures.",
   "exchanges": [
     {
@@ -1165,10 +1170,19 @@
         "base": "$.baseAsset",
         "quote": "$.quoteAsset",
         "symbolId": "$.symbol",
-        "activeWhen": {
-          "path": "$.status",
-          "equals": "TRADING"
-        },
+        "activeWhen": [
+          {
+            "path": "$.status",
+            "equals": "TRADING"
+          },
+          {
+            "path": "$.contractType",
+            "oneOf": [
+              "PERPETUAL",
+              "TRADIFI_PERPETUAL"
+            ]
+          }
+        ],
         "pricePrecision": "$.pricePrecision"
       },
       "ticker": {
@@ -1202,7 +1216,8 @@
         "open": "$[1]",
         "close": "$[4]",
         "stepMinutes": 15
-      }
+      },
+      "note": "Perpetuals only: the instrument feed also lists dated futures with the same base and quote, which look identical in the picker but trade rarely, so their last price can sit still for an hour."
     },
     {
       "id": "bybit_perps",
@@ -1220,10 +1235,16 @@
         "base": "$.baseCoin",
         "quote": "$.quoteCoin",
         "symbolId": "$.symbol",
-        "activeWhen": {
-          "path": "$.status",
-          "equals": "Trading"
-        }
+        "activeWhen": [
+          {
+            "path": "$.status",
+            "equals": "Trading"
+          },
+          {
+            "path": "$.contractType",
+            "equals": "LinearPerpetual"
+          }
+        ]
       },
       "ticker": {
         "mode": "bulk",
@@ -1268,14 +1289,19 @@
         "open": "$[1]",
         "close": "$[4]",
         "stepMinutes": 15
-      }
+      },
+      "note": "Perpetuals only: the instrument feed also lists dated futures with the same base and quote, which look identical in the picker but trade rarely, so their last price can sit still for an hour."
     },
     {
       "id": "bitmex_derivatives",
       "name": "BitMEX",
       "ttsName": "Bit mex",
-      "health": "ok",
+      "health": "down",
+<<<<<<< HEAD
       "note": "One call carries both the instrument list and its prices, so discovery and ticker share a URL.",
+=======
+      "note": "One call carries both the instrument list and its prices, so discovery and ticker share a URL. Perpetuals only: the instrument feed also lists dated futures with the same base and quote, which look identical in the picker but trade rarely, so their last price can sit still for an hour.",
+>>>>>>> 84a84ee (Derivatives venues list perpetuals only; manifest v7; version 1.0.6 (build 7))
       "pairs": {
         "requests": [
           {
@@ -1287,10 +1313,16 @@
         "base": "$.underlying",
         "quote": "$.quoteCurrency",
         "symbolId": "$.symbol",
-        "activeWhen": {
-          "path": "$.state",
-          "equals": "Open"
-        },
+        "activeWhen": [
+          {
+            "path": "$.state",
+            "equals": "Open"
+          },
+          {
+            "path": "$.typ",
+            "equals": "FFWCSX"
+          }
+        ],
         "tickSize": "$.tickSize"
       },
       "ticker": {
@@ -1336,7 +1368,7 @@
       "name": "Deribit",
       "ttsName": "Deribit",
       "health": "ok",
-      "note": "Deribit enumerates per settlement currency, so discovery is three requests. A failure in one still leaves the others usable.",
+      "note": "Deribit enumerates per settlement currency, so discovery is three requests. A failure in one still leaves the others usable. Perpetuals only: the instrument feed also lists dated futures with the same base and quote, which look identical in the picker but trade rarely, so their last price can sit still for an hour.",
       "pairs": {
         "requests": [
           {
@@ -1356,10 +1388,16 @@
         "base": "$.base_currency",
         "quote": "$.counter_currency",
         "symbolId": "$.instrument_name",
-        "activeWhen": {
-          "path": "$.is_active",
-          "equals": true
-        },
+        "activeWhen": [
+          {
+            "path": "$.is_active",
+            "equals": true
+          },
+          {
+            "path": "$.settlement_period",
+            "equals": "perpetual"
+          }
+        ],
         "tickSize": "$.tick_size"
       },
       "ticker": {
